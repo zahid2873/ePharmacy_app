@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "86841293389",
+    "project_id": "epharmacy-300ff",
+    "storage_bucket": "epharmacy-300ff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:86841293389:android:7610450d2d7240a87dfa04",
+        "android_client_info": {
+          "package_name": "com.example.e_pharmacy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "86841293389-nmoab9v9nks4gronnoc09r7hogup187t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.e_pharmacy",
+            "certificate_hash": "244559e710403e734deb2f24fc845e7f00280ee7"
+          }
+        },
+        {
+          "client_id": "86841293389-8ms40c95s9bp91rnfkemj711olgl38i0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBi2tKYA4flSqFLVoASmuPzRvWViVpCopI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "86841293389-8ms40c95s9bp91rnfkemj711olgl38i0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
