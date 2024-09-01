@@ -6,10 +6,12 @@ class MasterLayout extends StatelessWidget {
   final Widget child;
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
-      bottomNavigationBar: CustomBottomNavigationBar(),
+      body: child,
+      bottomNavigationBar: const CustomBottomNavigationBar(),
     );
   }
 }
+

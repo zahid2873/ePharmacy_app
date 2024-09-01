@@ -54,7 +54,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
 
   static int _calculateSelectedIndex(BuildContext context) {
     final String location = GoRouterState.of(context).uri.toString();
-    print(location);
+   // print(location);
     if (location.startsWith('/errorScreen')) {
       return 1;
     }

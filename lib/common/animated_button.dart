@@ -1,0 +1,57 @@
+import 'package:flutter/widgets.dart';
+
+class AnimatedButton extends StatefulWidget {
+  const AnimatedButton({super.key, this.child, this.onTap});
+  final Widget? child;
+  final VoidCallback? onTap;
+
+  @override
+  State<AnimatedButton> createState() => _AnimatedButtonState();
+}
+
+class _AnimatedButtonState extends State<AnimatedButton>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+  late Animation _animation;
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 400),
+    );
+    _animation =
+        Tween<double>(begin: 1.0, end: 0.9).animate(_animationController);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: widget.onTap,
+      onTapDown: widget.child != null
+          ? (_) {
+              _animationController.forward();
+            }
+          : null,
+      onTapUp: widget.child != null
+          ? (_) {
+              _animationController.reverse();
+            }
+          : null,
+      child: AnimatedBuilder(
+          animation: _animationController,
+          builder: (_, __) {
+            return Transform.scale(
+              scale: _animation.value,
+              child: widget.child,
+            );
+          }),
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _animationController.dispose();
+  }
+}
