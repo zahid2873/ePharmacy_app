@@ -11,10 +11,6 @@ void main() async {
   );
 }
 
-// final firebaseinitializerProvider = FutureProvider<FirebaseApp>((ref) async {
-//   return await Firebase.initializeApp();
-// });
-
 class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
