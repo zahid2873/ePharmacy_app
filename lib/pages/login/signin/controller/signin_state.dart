@@ -1,27 +1,23 @@
-part of 'signup_controller.dart';
-class SignUpState extends Equatable {
-  final Name name;
+part of 'signin_controller.dart';
+class SigninState extends Equatable {
   final Email email;
   final Password password;
   final FormzStatus status;
   final String? errorMessage;
-  const SignUpState({
-    this.name = const Name.pure(),
+  const SigninState({
     this.email = const Email.pure(),
     this.password = const Password.pure(),
     this.status = FormzStatus.pure,
     this.errorMessage,
   });
 
-  SignUpState copyWith({
-    Name? name,
+  SigninState copyWith({
     Email? email,
     Password? password,
     FormzStatus? status,
     String? errorMessage,
   }) {
-    return SignUpState(
-      name: name ?? this.name,
+    return SigninState(
       email: email ?? this.email,
       password: password ?? this.password,
       status: status ?? this.status,
@@ -31,7 +27,6 @@ class SignUpState extends Equatable {
 
   @override
   List<Object?> get props => [
-        name,
         email,
         password,
         status,

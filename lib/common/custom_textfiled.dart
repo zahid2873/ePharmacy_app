@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
-    required this.controller,
+     this.controller,
     required this.maxLine,
     required this.hintText,
     this.errorText,
@@ -18,7 +18,7 @@ class CustomTextField extends StatelessWidget {
     this.autovalidateMode,
     this.isObsecure = false,
   });
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final void Function(String)? onChanged;
   final void Function(String?)? onSaved;
   final void Function(PointerDownEvent)? onTapOutside;
@@ -84,10 +84,10 @@ class CustomTextField extends StatelessWidget {
         SizeFadeSwitcher(
           child: errorText != null
               ? Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 4, 16, 0),
+                  padding: const EdgeInsets.fromLTRB(2, 4, 16, 0),
                   child: Text(
                     errorText ?? "",
-                    style: const TextStyle(color: Colors.red),
+                    style: const TextStyle(color: Colors.red, fontSize: 12),
                   ),
                 )
               : const SizedBox.shrink(),

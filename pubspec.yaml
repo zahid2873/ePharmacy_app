@@ -46,6 +46,9 @@ dependencies:
   equatable: ^2.0.5
   form_validators:
     path: packages/form_validators
+  authentication_repository:
+    path: packages/firebase_auth_repository
+ 
 
 dev_dependencies:
   flutter_test:

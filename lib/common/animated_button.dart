@@ -28,12 +28,12 @@ class _AnimatedButtonState extends State<AnimatedButton>
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: widget.onTap,
-      onTapDown: widget.child != null
+      onTapDown: widget.onTap != null
           ? (_) {
               _animationController.forward();
             }
           : null,
-      onTapUp: widget.child != null
+      onTapUp: widget.onTap != null
           ? (_) {
               _animationController.reverse();
             }
