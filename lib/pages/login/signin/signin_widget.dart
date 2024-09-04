@@ -1,5 +1,7 @@
 import 'package:e_pharmacy/common/animated_button.dart';
+import 'package:e_pharmacy/common/custom_alert_dialog.dart';
 import 'package:e_pharmacy/common/custom_textfiled.dart';
+import 'package:e_pharmacy/common/loading_sheet.dart';
 import 'package:e_pharmacy/pages/login/googleSignin/google_signin.dart';
 import 'package:e_pharmacy/pages/login/login_divider.dart';
 import 'package:e_pharmacy/pages/login/signin/controller/signin_controller.dart';
@@ -7,6 +9,7 @@ import 'package:e_pharmacy/pages/login/signin/forget_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:form_validators/form_validators.dart';
+import 'package:go_router/go_router.dart';
 
 class SigninWidget extends ConsumerWidget {
   SigninWidget({super.key});
@@ -15,6 +18,26 @@ class SigninWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final signInState = ref.watch(signInProvider);
+    ref.listen<SigninState>(signInProvider, (previous, current) async {
+      if (current.status.isSubmissionInProgress) {
+        await LoadingSheet.showModal(context);
+      } else if (current.status.isSubmissionFailure) {
+        if (Navigator.canPop(context)) {
+          GoRouter.of(context).pop();
+        }
+        await alertDialog(
+          context: context,
+          isOnlyCancel: true,
+          title: "${current.errorMessage}",
+          cancelTitle: "Cancel",
+        );
+      } else if (current.status.isSubmissionSuccess) {
+        if (Navigator.canPop(context)) {
+          GoRouter.of(context).pop();
+        }
+      }
+    });
+
     return Column(
       children: [
         CustomTextField(

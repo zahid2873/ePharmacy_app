@@ -52,7 +52,7 @@ class _AnimatedShapeState extends State<AnimatedShape>
 
   @override
   void dispose() {
-    super.dispose();
     _animationController.dispose();
+    super.dispose();
   }
 }
