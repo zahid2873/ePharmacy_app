@@ -51,7 +51,7 @@ class _AnimatedButtonState extends State<AnimatedButton>
 
   @override
   void dispose() {
-    super.dispose();
     _animationController.dispose();
+    super.dispose();
   }
 }
