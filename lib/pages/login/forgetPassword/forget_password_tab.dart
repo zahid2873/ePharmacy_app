@@ -1,13 +1,27 @@
+import 'package:e_pharmacy/common/custom_alert_dialog.dart';
 import 'package:e_pharmacy/common/custom_textfiled.dart';
+import 'package:e_pharmacy/pages/login/forgetPassword/controller/forget_password_controller.dart';
+import 'package:e_pharmacy/pages/login/forgetPassword/controller/forget_password_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:form_validators/form_validators.dart';
 import 'package:go_router/go_router.dart';
 
-class ForgetPasswordTab extends StatelessWidget {
+class ForgetPasswordTab extends ConsumerWidget {
   ForgetPasswordTab({super.key});
   final TextEditingController forgetPasswordController =
       TextEditingController();
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final forgetPasswordState = ref.watch(forgetPasswordProvider);
+    final status = forgetPasswordState.status;
+    ref.listen<ForgetPasswordState>(forgetPasswordProvider,
+        (previous, current) {
+      if (current.status.isSubmissionFailure) {
+        GoRouter.of(context).pop();
+        alertDialog(context: context, title: "${current.errorMessage}");
+      }
+    });
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -15,17 +29,23 @@ class ForgetPasswordTab extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CustomTextField(
-              controller: forgetPasswordController,
               maxLine: 1,
               hintText: "Please enter your email",
+              errorText:
+                  Email.showEmailErrorMessage(forgetPasswordState.email.error),
+              onChanged: (email) {
+                ref.read(forgetPasswordProvider.notifier).onEmailChange(email);
+              },
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 TextButton(
-                  onPressed: () {
-                    GoRouter.of(context).pop();
-                  },
+                  onPressed: status.isSubmissionInProgress
+                      ? null
+                      : () {
+                          GoRouter.of(context).pop();
+                        },
                   child: const Text(
                     "Cancel",
                     style: TextStyle(
@@ -34,10 +54,17 @@ class ForgetPasswordTab extends StatelessWidget {
                   ),
                 ),
                 TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    "Request",
-                    style: TextStyle(
+                  onPressed: status.isSubmissionInProgress ||
+                          status.isSubmissionSuccess
+                      ? null
+                      : () {
+                          ref
+                              .read(forgetPasswordProvider.notifier)
+                              .forgetPassword();
+                        },
+                  child: Text(
+                    _getButtontest(status),
+                    style: const TextStyle(
                       color: Colors.blue,
                     ),
                   ),
@@ -48,5 +75,17 @@ class ForgetPasswordTab extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String _getButtontest(FormzStatus status) {
+    if (status == FormzStatus.submissionInProgress) {
+      return "Requesting";
+    } else if (status == FormzStatus.submissionFailure) {
+      return "Failed";
+    } else if (status == FormzStatus.submissionSuccess) {
+      return "Done";
+    } else {
+      return "Request";
+    }
   }
 }
