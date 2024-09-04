@@ -1,4 +1,4 @@
-import 'package:e_pharmacy/common/bottom_navigation_bar.dart';
+import 'package:e_pharmacy/common/bottomNavbar/bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class MasterLayout extends StatelessWidget {
@@ -6,7 +6,7 @@ class MasterLayout extends StatelessWidget {
   final Widget child;
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
       body: child,
@@ -14,4 +14,3 @@ class MasterLayout extends StatelessWidget {
     );
   }
 }
-

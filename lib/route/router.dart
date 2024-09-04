@@ -1,5 +1,7 @@
 import 'package:e_pharmacy/error_screen.dart';
+import 'package:e_pharmacy/master_layout.dart';
 import 'package:e_pharmacy/pages/home/home_tab.dart';
+import 'package:e_pharmacy/pages/home/test_page.dart';
 import 'package:e_pharmacy/pages/login/controller/authentication_controller.dart';
 import 'package:e_pharmacy/pages/login/forgetPassword/forget_password_tab.dart';
 import 'package:e_pharmacy/pages/login/login_tab.dart';
@@ -16,7 +18,7 @@ final routerProvider = Provider<GoRouter>(
     final authState = ref.watch(authProvider);
     String getInitialPath() {
       if (authState.status == AuthenticationStatus.authenticated) {
-        return '/homeTab';
+        return '/';
       } else if (authState.status == AuthenticationStatus.unauthenticated) {
         return '/login';
       } else {
@@ -35,23 +37,35 @@ final routerProvider = Provider<GoRouter>(
               return const MaterialPage(child: LoginTab());
             }),
         GoRoute(
-            name: 'homeTab',
-            path: '/homeTab',
-            pageBuilder: (context, state) {
-              return const MaterialPage(child: HomeTab());
-            }),
-        GoRoute(
             name: 'forgetPassword',
             path: '/forgetPassword',
             pageBuilder: (context, state) {
               return MaterialPage(child: ForgetPasswordTab());
             }),
-        GoRoute(
-            name: 'errorScreen',
-            path: '/errorScreen',
-            pageBuilder: (context, state) {
-              return const MaterialPage(child: ErrorScreen());
-            }),
+        ShellRoute(
+            navigatorKey: shellNavigatorKey,
+            builder: (context, state, child) =>
+                MasterLayout(key: state.pageKey, child: child),
+            routes: [
+              GoRoute(
+                  name: 'home',
+                  path: '/',
+                  pageBuilder: (context, state) {
+                    return const NoTransitionPage(child: HomeTab());
+                  }),
+              GoRoute(
+                  name: 'test',
+                  path: '/test',
+                  pageBuilder: (context, state) {
+                    return const NoTransitionPage(child: TestPage());
+                  }),
+              GoRoute(
+                  name: 'errorScreen',
+                  path: '/errorScreen',
+                  pageBuilder: (context, state) {
+                    return const NoTransitionPage(child: ErrorScreen());
+                  }),
+            ]),
       ],
     );
   },
