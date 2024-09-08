@@ -1,10 +1,6 @@
 import 'package:e_pharmacy/models/categoryModel/category_model.dart';
 
-List<CategoryModel> categoryModel = [
-  CategoryModel(
-      categoryName: "AnalgesicsyName",
-      categoryImage:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTehZW0StD12BwB2Ko91f5JivOI9AvN0kpMg&s"),
+List<CategoryModel> categoryList = [
   CategoryModel(
       categoryName: "Antacids",
       categoryImage:
