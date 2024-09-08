@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
-     this.controller,
+    this.controller,
     required this.maxLine,
     required this.hintText,
     this.errorText,
@@ -16,6 +16,7 @@ class CustomTextField extends StatelessWidget {
     this.onChanged,
     this.onTapOutside,
     this.autovalidateMode,
+    this.prefixIcon,
     this.isObsecure = false,
   });
   final TextEditingController? controller;
@@ -31,6 +32,7 @@ class CustomTextField extends StatelessWidget {
   final AutovalidateMode? autovalidateMode;
   final bool isObsecure;
   final String? errorText;
+  final Widget? prefixIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +64,7 @@ class CustomTextField extends StatelessWidget {
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               //helperText: "",
+              prefixIcon: prefixIcon,
               hintText: hintText,
               hintStyle: TextStyle(
                 fontSize: 14,
