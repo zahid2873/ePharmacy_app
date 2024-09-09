@@ -1,3 +1,4 @@
+import 'package:e_pharmacy/common/brand_title.dart';
 import 'package:flutter/material.dart';
 
 class ProductCardVertical extends StatelessWidget {
@@ -75,20 +76,7 @@ class ProductCardVertical extends StatelessWidget {
                       style: TextStyle(fontSize: 14),
                       overflow: TextOverflow.ellipsis,
                     ),
-                    const Row(
-                      children: [
-                        Text(
-                          "Brand",
-                          style: TextStyle(fontSize: 10, color: Colors.grey),
-                        ),
-                        SizedBox(width: 5),
-                        Icon(
-                          Icons.verified,
-                          size: 10,
-                          color: Colors.blue,
-                        ),
-                      ],
-                    ),
+                    const BrandTitle(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

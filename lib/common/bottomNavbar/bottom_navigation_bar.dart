@@ -34,6 +34,13 @@ class _CustomBottomNavigationBarState
             ),
           ),
           NavigationDestination(
+            label: "Store",
+            icon: FaIcon(
+              FontAwesomeIcons.store,
+              size: 20,
+            ),
+          ),
+          NavigationDestination(
             label: "Favorite",
             icon: FaIcon(
               FontAwesomeIcons.heart,
@@ -79,15 +86,14 @@ class _CustomBottomNavigationBarState
         GoRouter.of(context).pushNamed('home');
         break;
       case 1:
-        GoRouter.of(context).pushNamed('test');
+        GoRouter.of(context).pushNamed('store');
         break;
       case 2:
-        GoRouter.of(context).pushNamed('errorScreen');
-
+        GoRouter.of(context).pushNamed('test');
         break;
-      // case 3:
-      //   GoRouter.of(context).pushNamed('login');
-      //   break;
+      case 3:
+        GoRouter.of(context).pushNamed('errorScreen');
+        break;
     }
   }
 }
