@@ -1,3 +1,4 @@
+import 'package:e_pharmacy/common/title_widget.dart';
 import 'package:e_pharmacy/pages/home/homeBottomView/productCard/product_grid_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -6,16 +7,16 @@ class PopularProductWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.fromLTRB(16, 10, 16, 0),
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 10, 16, 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "Popular Product",
-            style: TextStyle(fontSize: 16, color: Colors.black),
+          TitleWidget(
+            title: "Popular Product",
+            onTap: () {},
           ),
-          ProductGridWidget(),
+          const ProductGridWidget(),
         ],
       ),
     );
