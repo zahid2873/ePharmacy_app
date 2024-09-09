@@ -12,12 +12,14 @@ class HomeTab extends ConsumerWidget {
     final authController = ref.read(authProvider.notifier);
     final authUser = ref.watch(authProvider).user;
     return Scaffold(
-      body: Center(
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const HomeTopView(),
             const HomeBottomView(),
+
             Text("Name:${authUser.name}"),
             Text("Email:${authUser.email}"),
             Text("Email:${authUser.id}"),
