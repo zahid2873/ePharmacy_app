@@ -1,0 +1,127 @@
+import 'package:flutter/material.dart';
+
+class ProductCardVertical extends StatelessWidget {
+  const ProductCardVertical({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      child: Ink(
+        height: 200,
+        width: 100,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(12),
+          onTap: () {},
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Stack(
+                children: [
+                  SizedBox(
+                    height: 130,
+                    child: ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(12),
+                        topRight: Radius.circular(12),
+                      ),
+                      child: Image.network(
+                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTehZW0StD12BwB2Ko91f5JivOI9AvN0kpMg&s",
+                        // height: 100,
+                        width: double.infinity,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: 10,
+                    left: 6,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 2, horizontal: 8),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(4),
+                        color: Colors.amber,
+                      ),
+                      child: const Text(
+                        "25%",
+                        style: TextStyle(fontSize: 12),
+                      ),
+                    ),
+                  ),
+                  const Positioned(
+                    top: 10,
+                    right: 6,
+                    child: Icon(
+                      Icons.favorite,
+                      color: Colors.red,
+                    ),
+                    // ),
+                  ),
+                ],
+              ),
+              //const SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.only(left: 8),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Antibiotics",
+                      style: TextStyle(fontSize: 14),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const Row(
+                      children: [
+                        Text(
+                          "Brand",
+                          style: TextStyle(fontSize: 10, color: Colors.grey),
+                        ),
+                        SizedBox(width: 5),
+                        Icon(
+                          Icons.verified,
+                          size: 10,
+                          color: Colors.blue,
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "\$200",
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 6, vertical: 6),
+                          decoration: const BoxDecoration(
+                            color: Colors.black,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              bottomRight: Radius.circular(12),
+                            ),
+                          ),
+                          child: const Icon(
+                            Icons.add,
+                            size: 12,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
