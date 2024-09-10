@@ -89,7 +89,7 @@ class _CustomBottomNavigationBarState
         GoRouter.of(context).pushNamed('store');
         break;
       case 2:
-        GoRouter.of(context).pushNamed('test');
+        GoRouter.of(context).pushNamed('favorite');
         break;
       case 3:
         GoRouter.of(context).pushNamed('errorScreen');

@@ -35,7 +35,7 @@ class StoreTab extends StatelessWidget {
                     // physics: const NeverScrollableScrollPhysics(),
                     children: const [
                       SearchBarWidget(),
-                      SizedBox(height: 32),
+                      SizedBox(height: 10),
                       FeaturedProductWidget(),
                       SizedBox(height: 70)
                     ],
