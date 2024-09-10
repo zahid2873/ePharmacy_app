@@ -1,5 +1,6 @@
 import 'package:e_pharmacy/error_screen.dart';
 import 'package:e_pharmacy/master_layout.dart';
+import 'package:e_pharmacy/pages/favorite/favorite_tab.dart';
 import 'package:e_pharmacy/pages/home/home_tab.dart';
 import 'package:e_pharmacy/pages/home/test_page.dart';
 import 'package:e_pharmacy/pages/login/controller/authentication_controller.dart';
@@ -61,10 +62,10 @@ final routerProvider = Provider<GoRouter>(
                     return const NoTransitionPage(child: StoreTab());
                   }),
               GoRoute(
-                  name: 'test',
-                  path: '/test',
+                  name: 'favorite',
+                  path: '/favorite',
                   pageBuilder: (context, state) {
-                    return const NoTransitionPage(child: TestPage());
+                    return const NoTransitionPage(child: FavoriteTab());
                   }),
               GoRoute(
                   name: 'errorScreen',
