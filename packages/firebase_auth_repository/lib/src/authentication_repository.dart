@@ -34,6 +34,7 @@ class AuthenticationRepository {
                 id: firebaseUser.uid,
                 name: firebaseUser.displayName,
                 email: firebaseUser.email,
+                imageUrl: firebaseUser.photoURL,
                 emailVerified: firebaseUser.emailVerified,
               );
       },

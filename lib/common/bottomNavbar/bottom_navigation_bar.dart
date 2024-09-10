@@ -48,19 +48,12 @@ class _CustomBottomNavigationBarState
             ),
           ),
           NavigationDestination(
-            label: "Test",
-            icon: FaIcon(
-              FontAwesomeIcons.message,
+            label: "Profile",
+            icon: Icon(
+              Icons.person,
               size: 20,
             ),
           ),
-          // NavigationDestination(
-          //   label: "Profile",
-          //   icon: FaIcon(
-          //     FontAwesomeIcons.user,
-          //     size: 20,
-          //   ),
-          // )
         ]);
   }
 
@@ -92,7 +85,7 @@ class _CustomBottomNavigationBarState
         GoRouter.of(context).pushNamed('favorite');
         break;
       case 3:
-        GoRouter.of(context).pushNamed('errorScreen');
+        GoRouter.of(context).pushNamed('profile');
         break;
     }
   }
