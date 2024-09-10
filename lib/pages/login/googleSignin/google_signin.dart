@@ -23,7 +23,7 @@ class GoogleSigninButton extends ConsumerWidget {
           cancelTitle: "Cancel",
         );
       } else if (current == GoogleSignInState.success) {
-        GoRouter.of(context).pop();
+     //   GoRouter.of(context).pop();
       }
     });
     return AnimatedButton(

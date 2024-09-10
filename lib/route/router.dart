@@ -1,11 +1,10 @@
-import 'package:e_pharmacy/error_screen.dart';
 import 'package:e_pharmacy/master_layout.dart';
 import 'package:e_pharmacy/pages/favorite/favorite_tab.dart';
 import 'package:e_pharmacy/pages/home/home_tab.dart';
-import 'package:e_pharmacy/pages/home/test_page.dart';
 import 'package:e_pharmacy/pages/login/controller/authentication_controller.dart';
 import 'package:e_pharmacy/pages/login/forgetPassword/forget_password_tab.dart';
 import 'package:e_pharmacy/pages/login/login_tab.dart';
+import 'package:e_pharmacy/pages/profile/profile_tab.dart';
 import 'package:e_pharmacy/pages/store/store_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -55,7 +54,7 @@ final routerProvider = Provider<GoRouter>(
                   pageBuilder: (context, state) {
                     return const NoTransitionPage(child: HomeTab());
                   }),
-                   GoRoute(
+              GoRoute(
                   name: 'store',
                   path: '/store',
                   pageBuilder: (context, state) {
@@ -68,10 +67,10 @@ final routerProvider = Provider<GoRouter>(
                     return const NoTransitionPage(child: FavoriteTab());
                   }),
               GoRoute(
-                  name: 'errorScreen',
-                  path: '/errorScreen',
+                  name: 'profile',
+                  path: '/profile',
                   pageBuilder: (context, state) {
-                    return const NoTransitionPage(child: ErrorScreen());
+                    return const NoTransitionPage(child: ProfileTab());
                   }),
             ]),
       ],
