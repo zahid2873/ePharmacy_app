@@ -1,6 +1,7 @@
 import 'package:e_pharmacy/pages/login/controller/authentication_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class UserProfileWidget extends ConsumerWidget {
   const UserProfileWidget({super.key});
@@ -8,7 +9,6 @@ class UserProfileWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final authUser = ref.watch(authProvider).user;
-    final authController = ref.read(authProvider.notifier);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -41,7 +41,7 @@ class UserProfileWidget extends ConsumerWidget {
                   ),
                   Text(
                     authUser.email ?? "",
-                    style: TextStyle(fontSize: 12, color: Colors.white),
+                    style: const TextStyle(fontSize: 12, color: Colors.white),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ],
@@ -49,9 +49,9 @@ class UserProfileWidget extends ConsumerWidget {
             ],
           ),
           IconButton(
-              onPressed: ()=>authController.signOut(),
+              onPressed: () => GoRouter.of(context).goNamed("updateProfile"),
               icon: const Icon(
-                Icons.logout,
+                Icons.edit,
                 color: Colors.white,
                 size: 20,
               ))

@@ -5,6 +5,7 @@ import 'package:e_pharmacy/pages/login/controller/authentication_controller.dart
 import 'package:e_pharmacy/pages/login/forgetPassword/forget_password_tab.dart';
 import 'package:e_pharmacy/pages/login/login_tab.dart';
 import 'package:e_pharmacy/pages/profile/profile_tab.dart';
+import 'package:e_pharmacy/pages/profile/update_profile.dart';
 import 'package:e_pharmacy/pages/store/store_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -49,11 +50,12 @@ final routerProvider = Provider<GoRouter>(
                 MasterLayout(key: state.pageKey, child: child),
             routes: [
               GoRoute(
-                  name: 'home',
-                  path: '/',
-                  pageBuilder: (context, state) {
-                    return const NoTransitionPage(child: HomeTab());
-                  }),
+                name: 'home',
+                path: '/',
+                pageBuilder: (context, state) {
+                  return const NoTransitionPage(child: HomeTab());
+                },
+              ),
               GoRoute(
                   name: 'store',
                   path: '/store',
@@ -71,7 +73,15 @@ final routerProvider = Provider<GoRouter>(
                   path: '/profile',
                   pageBuilder: (context, state) {
                     return const NoTransitionPage(child: ProfileTab());
-                  }),
+                  },
+                  routes: [
+                    GoRoute(
+                        name: 'updateProfile',
+                        path: 'updateProfile',
+                        pageBuilder: (context, state) {
+                          return const NoTransitionPage(child: UpdateProfile());
+                        }),
+                  ]),
             ]),
       ],
     );
