@@ -49,6 +49,7 @@ dependencies:
   authentication_repository:
     path: packages/firebase_auth_repository
   carousel_slider: ^5.0.0
+  readmore: ^3.0.0
  
 
 dev_dependencies:

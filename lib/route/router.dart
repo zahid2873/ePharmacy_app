@@ -4,6 +4,7 @@ import 'package:e_pharmacy/pages/home/home_tab.dart';
 import 'package:e_pharmacy/pages/login/controller/authentication_controller.dart';
 import 'package:e_pharmacy/pages/login/forgetPassword/forget_password_tab.dart';
 import 'package:e_pharmacy/pages/login/login_tab.dart';
+import 'package:e_pharmacy/pages/productDetails/product_details.dart';
 import 'package:e_pharmacy/pages/profile/profile_tab.dart';
 import 'package:e_pharmacy/pages/profile/update_profile.dart';
 import 'package:e_pharmacy/pages/store/store_tab.dart';
@@ -43,6 +44,12 @@ final routerProvider = Provider<GoRouter>(
             path: '/forgetPassword',
             pageBuilder: (context, state) {
               return MaterialPage(child: ForgetPasswordTab());
+            }),
+            GoRoute(
+            name: 'productDetails',
+            path: '/productDetails',
+            pageBuilder: (context, state) {
+              return const MaterialPage(child: ProductDetails());
             }),
         ShellRoute(
             navigatorKey: shellNavigatorKey,
