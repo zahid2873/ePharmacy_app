@@ -4,14 +4,23 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 class UserProfileWidget extends ConsumerWidget {
-  const UserProfileWidget({super.key});
-
+  const UserProfileWidget({
+    super.key,
+    this.padding,
+    this.textStyle,
+    this.isEmailShow = true,
+    this.trailing,
+  });
+  final EdgeInsets? padding;
+  final TextStyle? textStyle;
+  final bool isEmailShow;
+  final Widget? trailing;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final authUser = ref.watch(authProvider).user;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: padding ?? const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -33,28 +42,34 @@ class UserProfileWidget extends ConsumerWidget {
                 children: [
                   Text(
                     authUser.name ?? "Anonymous",
-                    style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                    style: textStyle ??
+                        const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
                     overflow: TextOverflow.ellipsis,
                   ),
-                  Text(
-                    authUser.email ?? "",
-                    style: const TextStyle(fontSize: 12, color: Colors.white),
-                    overflow: TextOverflow.ellipsis,
-                  ),
+                  isEmailShow
+                      ? Text(
+                          authUser.email ?? "",
+                          style: const TextStyle(
+                              fontSize: 12, color: Colors.white),
+                          overflow: TextOverflow.ellipsis,
+                        )
+                      : const SizedBox.shrink()
                 ],
               )
             ],
           ),
-          IconButton(
-              onPressed: () => GoRouter.of(context).goNamed("updateProfile"),
-              icon: const Icon(
-                Icons.edit,
-                color: Colors.white,
-                size: 20,
-              ))
+          trailing ??
+              IconButton(
+                onPressed: () => GoRouter.of(context).goNamed("updateProfile"),
+                icon: const Icon(
+                  Icons.edit,
+                  color: Colors.white,
+                  size: 20,
+                ),
+              ),
         ],
       ),
     );
