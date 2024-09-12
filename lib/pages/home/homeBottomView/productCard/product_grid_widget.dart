@@ -7,7 +7,7 @@ class ProductGridWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      padding: const EdgeInsets.only(top: 10),
+      padding: const EdgeInsets.only(top: 10, bottom: 100),
       scrollDirection: Axis.vertical,
       itemCount: 8,
       shrinkWrap: true,
