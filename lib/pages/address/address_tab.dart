@@ -21,7 +21,7 @@ class AddressTab extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton.small(
-        onPressed: () {},
+        onPressed: () => GoRouter.of(context).pushNamed("addNewAddress"),
         backgroundColor: Colors.blue,
         child: const Icon(
           Icons.add,

@@ -27,7 +27,7 @@ class AccountSettingsWidget extends StatelessWidget {
           ),
           title: "My Address",
           subTitle: "Set shopping delivary address",
-          onTap: () =>GoRouter.of(context).goNamed("address"),
+          onTap: () =>GoRouter.of(context).pushNamed("address"),
         ),
         IconButtonItem(
           icon: const Icon(
