@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CartCounterWidget extends StatelessWidget {
   const CartCounterWidget({super.key, this.icon, this.onTap});
@@ -8,7 +9,7 @@ class CartCounterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: onTap ?? () {},
+      onPressed: onTap ??  () => GoRouter.of(context).pushNamed("cart"),
       icon: const Badge(
         backgroundColor: Colors.black,
         label: Text(
@@ -18,6 +19,5 @@ class CartCounterWidget extends StatelessWidget {
         child: Icon(Icons.shop),
       ),
     );
-    
   }
 }

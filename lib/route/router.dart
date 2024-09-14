@@ -1,6 +1,7 @@
 import 'package:e_pharmacy/master_layout.dart';
 import 'package:e_pharmacy/pages/address/add_new_addrees_tab.dart';
 import 'package:e_pharmacy/pages/address/address_tab.dart';
+import 'package:e_pharmacy/pages/cart/cart_tab.dart';
 import 'package:e_pharmacy/pages/favorite/favorite_tab.dart';
 import 'package:e_pharmacy/pages/home/home_tab.dart';
 import 'package:e_pharmacy/pages/login/controller/authentication_controller.dart';
@@ -71,6 +72,12 @@ final routerProvider = Provider<GoRouter>(
             path: '/addNewAddress',
             pageBuilder: (context, state) {
               return const MaterialPage(child: AddNewAddreesTab());
+            }),
+             GoRoute(
+            name: 'cart',
+            path: '/cart',
+            pageBuilder: (context, state) {
+              return const MaterialPage(child: CartTab());
             }),
         ShellRoute(
             navigatorKey: shellNavigatorKey,
