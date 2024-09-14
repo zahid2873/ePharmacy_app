@@ -1,5 +1,6 @@
 import 'package:e_pharmacy/pages/profile/icon_button_item.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AccountSettingsWidget extends StatelessWidget {
   const AccountSettingsWidget({super.key});
@@ -26,7 +27,7 @@ class AccountSettingsWidget extends StatelessWidget {
           ),
           title: "My Address",
           subTitle: "Set shopping delivary address",
-          onTap: () {},
+          onTap: () =>GoRouter.of(context).goNamed("address"),
         ),
         IconButtonItem(
           icon: const Icon(
