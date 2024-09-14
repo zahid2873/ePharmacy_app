@@ -8,9 +8,10 @@ class CircularIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
+      maxRadius: 15,
       backgroundColor: backgroundColor ?? Colors.grey,
       child: IconButton(
-        onPressed: onTap?? () {},
+        onPressed: onTap ?? () {},
         icon: icon ??
             const Icon(
               Icons.favorite,

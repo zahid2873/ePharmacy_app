@@ -1,5 +1,5 @@
 import 'package:e_pharmacy/common/animated_button.dart';
-import 'package:e_pharmacy/common/circular_icon.dart';
+import 'package:e_pharmacy/common/cart_add_remove_widget.dart';
 import 'package:flutter/material.dart';
 
 class BottomAddToCartWidget extends StatelessWidget {
@@ -17,32 +17,8 @@ class BottomAddToCartWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Row(
-            children: [
-              CircularIcon(
-                icon: Icon(
-                  Icons.remove,
-                  size: 16,
-                  color: Colors.white,
-                ),
-              ),
-              SizedBox(width: 10),
-              Text(
-                "4",
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
-              ),
-              SizedBox(width: 10),
-              CircularIcon(
-                icon: Icon(
-                  Icons.add,
-                  size: 16,
-                  color: Colors.white,
-                ),
-              ),
-            ],
+          const CartAddRemoveWidget(
+            numberOfItem: 4,
           ),
           AnimatedButton(
             child: Container(
