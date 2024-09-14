@@ -6,10 +6,11 @@ class TitleWidget extends StatelessWidget {
     this.title,
     this.buttonTitle = "View all",
     this.onTap,
-    this.isEnableButton = true,
+    this.isEnableButton = true, this.textStyle,
   });
   final String? title;
   final String buttonTitle;
+  final TextStyle? textStyle;
   final VoidCallback? onTap;
   final bool isEnableButton;
 
@@ -20,7 +21,7 @@ class TitleWidget extends StatelessWidget {
       children: [
         Text(
           title ?? "",
-          style: const TextStyle(
+          style: textStyle?? const TextStyle(
               fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold),
         ),
         isEnableButton
