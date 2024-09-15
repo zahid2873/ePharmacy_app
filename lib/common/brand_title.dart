@@ -12,7 +12,7 @@ class BrandTitle extends StatelessWidget {
   final String? title;
   final Color? titleColor;
   final TextStyle? textStyle;
-  final Icon? icon;
+  final Widget? icon;
   final Color? iconColor;
   final double? iconSize;
 

@@ -3,9 +3,11 @@ import 'package:e_pharmacy/common/cart_add_remove_widget.dart';
 import 'package:flutter/material.dart';
 
 class CartItemWidget extends StatelessWidget {
-  const CartItemWidget({super.key, this.color, this.size});
+  const CartItemWidget(
+      {super.key, this.color, this.size, this.isShowButton = true});
   final Color? color;
   final String? size;
+  final bool isShowButton;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -71,24 +73,26 @@ class CartItemWidget extends StatelessWidget {
               )
             ],
           ),
-          const Row(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              SizedBox(width: 80),
-              CartAddRemoveWidget(
-                numberOfItem: 2,
-                textColor: Colors.black,
-              ),
-              Spacer(),
-              Text(
-                "1555 \$",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold),
-              ),
-            ],
-          )
+          isShowButton
+              ? const Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    SizedBox(width: 80),
+                    CartAddRemoveWidget(
+                      numberOfItem: 2,
+                      textColor: Colors.black,
+                    ),
+                    Spacer(),
+                    Text(
+                      "1555 \$",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                )
+              : const SizedBox.shrink()
         ],
       ),
     );

@@ -1,6 +1,6 @@
-import 'package:e_pharmacy/common/title_widget.dart';
-import 'package:e_pharmacy/pages/productDetails/checkout_button.dart';
 import 'package:e_pharmacy/common/read_more_text_widget.dart';
+import 'package:e_pharmacy/common/title_widget.dart';
+import 'package:e_pharmacy/pages/cart/checkout_button.dart';
 import 'package:e_pharmacy/pages/productDetails/product_info.dart';
 import 'package:e_pharmacy/pages/productDetails/product_price.dart';
 import 'package:e_pharmacy/pages/productDetails/product_rating_widget.dart';
@@ -13,24 +13,24 @@ class ProductDetailsBottomView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
-      padding: EdgeInsets.fromLTRB(16, 0, 16, 40),
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 0, 16, 40),
       child: Column(
         children: [
-         const ProductRatingWidget(),
-        const  ProductPrice(
+          const ProductRatingWidget(),
+          const ProductPrice(
             discount: 70,
           ),
-        const  ProductInfo(),
-        const  ProductVariation(),
-        const  CheckoutButton(),
-        const  SizedBox(height: 20),
-       const   TitleWidget(
+          const ProductInfo(),
+          const ProductVariation(),
+          const CheckoutButton(),
+          const SizedBox(height: 20),
+          const TitleWidget(
             title: "Description",
             isEnableButton: false,
           ),
-          ReadMoreTextWidget(text:productDescription),
-         const ReviewWidget(),
+          ReadMoreTextWidget(text: productDescription),
+          const ReviewWidget(),
         ],
       ),
     );

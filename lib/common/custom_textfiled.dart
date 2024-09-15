@@ -18,6 +18,7 @@ class CustomTextField extends StatelessWidget {
     this.autovalidateMode,
     this.prefixIcon,
     this.isObsecure = false,
+    this.fillColor,
   });
   final TextEditingController? controller;
   final void Function(String)? onChanged;
@@ -33,6 +34,7 @@ class CustomTextField extends StatelessWidget {
   final bool isObsecure;
   final String? errorText;
   final Widget? prefixIcon;
+  final Color? fillColor;
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +75,7 @@ class CustomTextField extends StatelessWidget {
                 color: Colors.black.withOpacity(0.5),
               ),
               filled: true,
-              fillColor: const Color(0xffeff1f7),
+              fillColor: fillColor ?? const Color(0xffeff1f7),
               border: const OutlineInputBorder(
                 borderSide: BorderSide.none,
                 borderRadius: BorderRadius.all(Radius.circular(12)),

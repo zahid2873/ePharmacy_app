@@ -46,7 +46,7 @@ class AddressWidget extends ConsumerWidget {
                 top: 0,
                 right: 0,
                 child: isSelected
-                    ? Icon(
+                    ? const Icon(
                         Icons.verified,
                         size: 16,
                       )
