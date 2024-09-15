@@ -47,7 +47,7 @@ class AccountSettingsWidget extends StatelessWidget {
           ),
           title: "My Orders",
           subTitle: "In progress add completed orders",
-          onTap: () {},
+          onTap: () =>GoRouter.of(context).pushNamed("orders"),
         ),
         IconButtonItem(
           icon: const Icon(
