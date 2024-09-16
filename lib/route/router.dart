@@ -2,6 +2,7 @@ import 'package:e_pharmacy/master_layout.dart';
 import 'package:e_pharmacy/pages/address/add_new_addrees_tab.dart';
 import 'package:e_pharmacy/pages/address/address_tab.dart';
 import 'package:e_pharmacy/pages/cart/cart_tab.dart';
+import 'package:e_pharmacy/pages/categoryProduct/category_product.dart';
 import 'package:e_pharmacy/pages/checkout/checkout_tab.dart';
 import 'package:e_pharmacy/pages/favorite/favorite_tab.dart';
 import 'package:e_pharmacy/pages/home/home_tab.dart';
@@ -92,6 +93,12 @@ final routerProvider = Provider<GoRouter>(
             path: '/orders',
             pageBuilder: (context, state) {
               return const MaterialPage(child: OrdersTab());
+            }),
+             GoRoute(
+            name: 'categoryProduct',
+            path: '/categoryProduct',
+            pageBuilder: (context, state) {
+              return const MaterialPage(child: CategoryProduct());
             }),
         ShellRoute(
             navigatorKey: shellNavigatorKey,

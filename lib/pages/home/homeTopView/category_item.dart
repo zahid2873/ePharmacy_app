@@ -1,6 +1,7 @@
 import 'package:e_pharmacy/dummyData/dummy_data.dart';
 import 'package:e_pharmacy/models/categoryModel/category_model.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CategoryItem extends StatelessWidget {
   const CategoryItem({super.key, required this.categoryModel, required this.index});
@@ -17,7 +18,7 @@ class CategoryItem extends StatelessWidget {
         left: index == 0 ? 16 : 11, right: index == (categoryList.length - 1) ? 16 : 0),
         child: InkWell(
           borderRadius: BorderRadius.circular(6),
-          onTap: () {},
+          onTap: ()=>GoRouter.of(context).pushNamed('categoryProduct'),
           child: Column(
             children: [
               Container(

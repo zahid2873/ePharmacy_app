@@ -23,6 +23,7 @@ class ProductDetailsBottomView extends StatelessWidget {
           ),
           const ProductInfo(),
           const ProductVariation(),
+          const SizedBox(height: 20),
           const CheckoutButton(),
           const SizedBox(height: 20),
           const TitleWidget(
