@@ -32,7 +32,7 @@ class TitleWidget extends StatelessWidget {
         isEnableButton
             ? TextButton(
                 onPressed:
-                     () => GoRouter.of(context).pushNamed('productTab'),
+                    onTap ?? () => GoRouter.of(context).pushNamed('productTab'),
                 child: Text(buttonTitle))
             : const SizedBox.shrink()
       ],

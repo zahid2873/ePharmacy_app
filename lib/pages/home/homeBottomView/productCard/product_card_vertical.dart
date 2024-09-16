@@ -32,8 +32,7 @@ class ProductCardVertical extends StatelessWidget {
                         topRight: Radius.circular(12),
                       ),
                       child: Image.network(
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTehZW0StD12BwB2Ko91f5JivOI9AvN0kpMg&s",
-                        // height: 100,
+                        "https://www.tfcfootball.com.my/wp-content/uploads/2021/12/PREMIER-LEAGUE-FLIGHT-BALL.jpg",
                         width: double.infinity,
                         fit: BoxFit.fill,
                       ),
@@ -73,7 +72,7 @@ class ProductCardVertical extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      "Antibiotics",
+                      "Nike PL Ball",
                       style: TextStyle(fontSize: 14),
                       overflow: TextOverflow.ellipsis,
                     ),
