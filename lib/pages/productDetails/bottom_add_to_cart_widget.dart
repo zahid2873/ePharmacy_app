@@ -21,6 +21,7 @@ class BottomAddToCartWidget extends StatelessWidget {
             numberOfItem: 4,
           ),
           AnimatedButton(
+            onTap: () {},
             child: Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
