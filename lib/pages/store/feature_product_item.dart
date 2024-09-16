@@ -1,5 +1,6 @@
 import 'package:e_pharmacy/common/brand_title.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class FeaturedProductItem extends StatelessWidget {
   const FeaturedProductItem({super.key, this.child = const SizedBox.shrink()});
@@ -8,7 +9,7 @@ class FeaturedProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+      padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
       child: Material(
         borderRadius: BorderRadius.circular(12),
         child: Ink(
@@ -19,7 +20,7 @@ class FeaturedProductItem extends StatelessWidget {
           ),
           child: InkWell(
             borderRadius: BorderRadius.circular(12),
-            onTap: () {},
+            onTap: () => GoRouter.of(context).pushNamed('brandsProduct'),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -29,11 +30,14 @@ class FeaturedProductItem extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Flexible(
-                      child: Image.network(
-                        "https://thumbs.dreamstime.com/b/nike-inc-american-multinational-corporation-engaged-design-development-manufacturing-worldwide-marketing-139136474.jpg",
-                        height: 56,
-                        width: 56,
-                        fit: BoxFit.fitHeight,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Image.network(
+                          "https://thumbs.dreamstime.com/b/nike-inc-american-multinational-corporation-engaged-design-development-manufacturing-worldwide-marketing-139136474.jpg",
+                          height: 56,
+                          width: 56,
+                          fit: BoxFit.fitHeight,
+                        ),
                       ),
                     ),
                     const SizedBox(width: 10),

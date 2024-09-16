@@ -25,7 +25,7 @@ class FeaturedProductWidget extends StatelessWidget {
           ),
         ),
         GridView.builder(
-          padding: const EdgeInsets.only(top: 10),
+          padding: const EdgeInsets.only(top: 10, left: 16, right: 16),
           scrollDirection: Axis.vertical,
           itemCount: itemCount ?? 8,
           shrinkWrap: true,
@@ -33,7 +33,7 @@ class FeaturedProductWidget extends StatelessWidget {
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             mainAxisSpacing: 10,
-            crossAxisSpacing: 0,
+            crossAxisSpacing: 10,
             mainAxisExtent: 80,
           ),
           itemBuilder: (index, _) {

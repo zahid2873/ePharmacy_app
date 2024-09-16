@@ -2,31 +2,43 @@ import 'package:e_pharmacy/models/categoryModel/category_model.dart';
 
 List<CategoryModel> categoryList = [
   CategoryModel(
-      categoryName: "Antacids",
-      categoryImage:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTehZW0StD12BwB2Ko91f5JivOI9AvN0kpMg&s"),
+    categoryName: "Sports",
+    categoryImage:
+        "https://static.vecteezy.com/system/resources/thumbnails/020/919/578/small/sports-background-international-sports-day-illustration-graphic-design-for-the-decoration-of-gift-certificates-banners-and-flyer-vector.jpg",
+  ),
   CategoryModel(
-      categoryName: "Antianxiety",
-      categoryImage:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTehZW0StD12BwB2Ko91f5JivOI9AvN0kpMg&s"),
+    categoryName: "Sports",
+    categoryImage:
+        "https://static.vecteezy.com/system/resources/thumbnails/020/919/578/small/sports-background-international-sports-day-illustration-graphic-design-for-the-decoration-of-gift-certificates-banners-and-flyer-vector.jpg",
+  ),
   CategoryModel(
-      categoryName: "Antibiotics",
-      categoryImage:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTehZW0StD12BwB2Ko91f5JivOI9AvN0kpMg&s"),
+    categoryName: "Sports",
+    categoryImage:
+        "https://static.vecteezy.com/system/resources/thumbnails/020/919/578/small/sports-background-international-sports-day-illustration-graphic-design-for-the-decoration-of-gift-certificates-banners-and-flyer-vector.jpg",
+  ),
   CategoryModel(
-      categoryName: "Anticonvulsants",
-      categoryImage:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTehZW0StD12BwB2Ko91f5JivOI9AvN0kpMg&s"),
+    categoryName: "Sports",
+    categoryImage:
+        "https://static.vecteezy.com/system/resources/thumbnails/020/919/578/small/sports-background-international-sports-day-illustration-graphic-design-for-the-decoration-of-gift-certificates-banners-and-flyer-vector.jpg",
+  ),
   CategoryModel(
-      categoryName: "Antiemetics",
-      categoryImage:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTehZW0StD12BwB2Ko91f5JivOI9AvN0kpMg&s"),
+    categoryName: "Sports",
+    categoryImage:
+        "https://static.vecteezy.com/system/resources/thumbnails/020/919/578/small/sports-background-international-sports-day-illustration-graphic-design-for-the-decoration-of-gift-certificates-banners-and-flyer-vector.jpg",
+  ),
   CategoryModel(
-      categoryName: "Antifungals",
-      categoryImage:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTehZW0StD12BwB2Ko91f5JivOI9AvN0kpMg&s"),
+    categoryName: "Sports",
+    categoryImage:
+        "https://static.vecteezy.com/system/resources/thumbnails/020/919/578/small/sports-background-international-sports-day-illustration-graphic-design-for-the-decoration-of-gift-certificates-banners-and-flyer-vector.jpg",
+  ),
   CategoryModel(
-      categoryName: "Antineoplastics",
-      categoryImage:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTehZW0StD12BwB2Ko91f5JivOI9AvN0kpMg&s"),
+    categoryName: "Sports",
+    categoryImage:
+        "https://static.vecteezy.com/system/resources/thumbnails/020/919/578/small/sports-background-international-sports-day-illustration-graphic-design-for-the-decoration-of-gift-certificates-banners-and-flyer-vector.jpg",
+  ),
+  CategoryModel(
+    categoryName: "Sports",
+    categoryImage:
+        "https://static.vecteezy.com/system/resources/thumbnails/020/919/578/small/sports-background-international-sports-day-illustration-graphic-design-for-the-decoration-of-gift-certificates-banners-and-flyer-vector.jpg",
+  ),
 ];
