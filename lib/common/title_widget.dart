@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class TitleWidget extends StatelessWidget {
   const TitleWidget({
@@ -29,7 +30,10 @@ class TitleWidget extends StatelessWidget {
                   fontWeight: FontWeight.bold),
         ),
         isEnableButton
-            ? TextButton(onPressed: onTap ?? () {}, child: Text(buttonTitle))
+            ? TextButton(
+                onPressed:
+                     () => GoRouter.of(context).pushNamed('productTab'),
+                child: Text(buttonTitle))
             : const SizedBox.shrink()
       ],
     );

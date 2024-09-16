@@ -1,8 +1,5 @@
 import 'package:e_pharmacy/common/custom_appbar.dart';
-import 'package:e_pharmacy/common/title_widget.dart';
 import 'package:e_pharmacy/pages/categoryProduct/sub_categroy_product.dart';
-import 'package:e_pharmacy/pages/home/homeBottomView/productCard/product_card_horizontal.dart';
-import 'package:e_pharmacy/pages/home/homeBottomView/productCard/product_grid_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
