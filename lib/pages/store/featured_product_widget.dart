@@ -1,9 +1,14 @@
 import 'package:e_pharmacy/common/title_widget.dart';
 import 'package:e_pharmacy/pages/store/feature_product_item.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class FeaturedProductWidget extends StatelessWidget {
-  const FeaturedProductWidget({super.key});
+  const FeaturedProductWidget(
+      {super.key, this.title, this.isTitleButtonShow = true, this.itemCount});
+  final String? title;
+  final bool isTitleButtonShow;
+  final int? itemCount;
 
   @override
   Widget build(BuildContext context) {
@@ -12,20 +17,23 @@ class FeaturedProductWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: TitleWidget(
-            onTap: () {},
-            title: "Featured Brands",
+            onTap: isTitleButtonShow
+                ? () => GoRouter.of(context).pushNamed('brandsTab')
+                : null,
+            title: title ?? "Featured Brands",
+            isEnableButton: isTitleButtonShow,
           ),
         ),
         GridView.builder(
           padding: const EdgeInsets.only(top: 10),
           scrollDirection: Axis.vertical,
-          itemCount: 8,
+          itemCount: itemCount ?? 8,
           shrinkWrap: true,
           physics: const BouncingScrollPhysics(),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             mainAxisSpacing: 10,
-            crossAxisSpacing: 5,
+            crossAxisSpacing: 0,
             mainAxisExtent: 80,
           ),
           itemBuilder: (index, _) {

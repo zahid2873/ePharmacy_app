@@ -1,6 +1,7 @@
 import 'package:e_pharmacy/master_layout.dart';
 import 'package:e_pharmacy/pages/address/add_new_addrees_tab.dart';
 import 'package:e_pharmacy/pages/address/address_tab.dart';
+import 'package:e_pharmacy/pages/brands/brands_tab.dart';
 import 'package:e_pharmacy/pages/cart/cart_tab.dart';
 import 'package:e_pharmacy/pages/categoryProduct/category_product.dart';
 import 'package:e_pharmacy/pages/checkout/checkout_tab.dart';
@@ -77,35 +78,41 @@ final routerProvider = Provider<GoRouter>(
             pageBuilder: (context, state) {
               return const MaterialPage(child: AddNewAddreesTab());
             }),
-             GoRoute(
+        GoRoute(
             name: 'cart',
             path: '/cart',
             pageBuilder: (context, state) {
               return const MaterialPage(child: CartTab());
             }),
-             GoRoute(
+        GoRoute(
             name: 'checkout',
             path: '/checkout',
             pageBuilder: (context, state) {
               return const MaterialPage(child: CheckoutTab());
             }),
-               GoRoute(
+        GoRoute(
             name: 'orders',
             path: '/orders',
             pageBuilder: (context, state) {
               return const MaterialPage(child: OrdersTab());
             }),
-             GoRoute(
+        GoRoute(
             name: 'categoryProduct',
             path: '/categoryProduct',
             pageBuilder: (context, state) {
               return const MaterialPage(child: CategoryProduct());
             }),
-               GoRoute(
+        GoRoute(
             name: 'productTab',
             path: '/productTab',
             pageBuilder: (context, state) {
               return const MaterialPage(child: ProductTab());
+            }),
+        GoRoute(
+            name: 'brandsTab',
+            path: '/brandsTab',
+            pageBuilder: (context, state) {
+              return const MaterialPage(child: BrandsTab());
             }),
         ShellRoute(
             navigatorKey: shellNavigatorKey,
