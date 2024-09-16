@@ -14,8 +14,8 @@ class ProductGridWidget extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        mainAxisSpacing: 10,
-        crossAxisSpacing: 5,
+        mainAxisSpacing: 15,
+        crossAxisSpacing: 15,
         mainAxisExtent: 200,
       ),
       itemBuilder: (index, _) {

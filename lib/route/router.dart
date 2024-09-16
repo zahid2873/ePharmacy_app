@@ -10,6 +10,7 @@ import 'package:e_pharmacy/pages/login/controller/authentication_controller.dart
 import 'package:e_pharmacy/pages/login/forgetPassword/forget_password_tab.dart';
 import 'package:e_pharmacy/pages/login/login_tab.dart';
 import 'package:e_pharmacy/pages/order/orders_tab.dart';
+import 'package:e_pharmacy/pages/product/product_tab.dart';
 import 'package:e_pharmacy/pages/productDetails/product_details.dart';
 import 'package:e_pharmacy/pages/productReview/product_review_tab.dart';
 import 'package:e_pharmacy/pages/profile/profile_tab.dart';
@@ -99,6 +100,12 @@ final routerProvider = Provider<GoRouter>(
             path: '/categoryProduct',
             pageBuilder: (context, state) {
               return const MaterialPage(child: CategoryProduct());
+            }),
+               GoRoute(
+            name: 'productTab',
+            path: '/productTab',
+            pageBuilder: (context, state) {
+              return const MaterialPage(child: ProductTab());
             }),
         ShellRoute(
             navigatorKey: shellNavigatorKey,
