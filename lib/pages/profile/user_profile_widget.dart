@@ -18,7 +18,7 @@ class UserProfileWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final authUser = ref.watch(authProvider).user;
-
+    final userStream = ref.watch(userProvider(authUser.id)).value;
     return Padding(
       padding: padding ?? const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
@@ -29,7 +29,7 @@ class UserProfileWidget extends ConsumerWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(50),
                 child: Image.network(
-                  authUser.imageUrl ??
+                  userStream?.profileImg ??
                       "https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg",
                   height: 40,
                   width: 40,
@@ -41,7 +41,7 @@ class UserProfileWidget extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    authUser.name ?? "Anonymous",
+                    userStream?.name ?? "Anonymous",
                     style: textStyle ??
                         const TextStyle(
                             fontSize: 16,
@@ -51,7 +51,7 @@ class UserProfileWidget extends ConsumerWidget {
                   ),
                   isEmailShow
                       ? Text(
-                          authUser.email ?? "",
+                          userStream?.email ?? "",
                           style: const TextStyle(
                               fontSize: 12, color: Colors.white),
                           overflow: TextOverflow.ellipsis,
