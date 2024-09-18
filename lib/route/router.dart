@@ -29,8 +29,8 @@ final GlobalKey<NavigatorState> shellNavigatorKey =
 final routerProvider = Provider<GoRouter>(
   (ref) {
     final authState = ref.watch(authProvider);
-    String getInitialPath() {
-      if (authState.status == AuthenticationStatus.authenticated) {
+    String getInitialPath()  {
+      if ( authState.status ==  AuthenticationStatus.authenticated) {
         return '/';
       } else if (authState.status == AuthenticationStatus.unauthenticated) {
         return '/login';

@@ -51,11 +51,16 @@ dependencies:
   carousel_slider: ^5.0.0
   readmore: ^3.0.0
   flutter_rating_bar: ^4.0.1
- 
+  freezed_annotation: ^2.4.1
+  cloud_firestore: ^5.4.2
+  logger: ^2.4.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  freezed: ^2.5.2
+  json_serializable: ^6.3.1
+  build_runner: ^2.4.10
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

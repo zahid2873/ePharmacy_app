@@ -1,6 +1,7 @@
 import 'package:e_pharmacy/common/animated_button.dart';
 import 'package:e_pharmacy/common/custom_alert_dialog.dart';
 import 'package:e_pharmacy/common/loading_sheet.dart';
+import 'package:e_pharmacy/pages/login/controller/authentication_controller.dart';
 import 'package:e_pharmacy/pages/login/googleSignin/google_signin_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -23,7 +24,7 @@ class GoogleSigninButton extends ConsumerWidget {
           cancelTitle: "Cancel",
         );
       } else if (current == GoogleSignInState.success) {
-     //   GoRouter.of(context).pop();
+        //   GoRouter.of(context).pop();
       }
     });
     return AnimatedButton(
@@ -39,8 +40,9 @@ class GoogleSigninButton extends ConsumerWidget {
         ),
         child: const Text("Signin with Google"),
       ),
-      onTap: () {
-        ref.read(googleSigninProvider.notifier).signInWithGoogle();
+      onTap: () async {
+       await ref.read(googleSigninProvider.notifier).signInWithGoogle();
+        ref.read(authProvider.notifier).addUser();
       },
     );
   }

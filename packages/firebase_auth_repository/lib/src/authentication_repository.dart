@@ -47,6 +47,7 @@ class AuthenticationRepository {
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(
           email: email, password: password);
+        
     } on FirebaseAuthException catch (e) {
       throw SignUpWithEmailAndPasswordFailure(e.code);
     }

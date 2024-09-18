@@ -24,7 +24,10 @@ class GoogleSigninController extends StateNotifier<GoogleSignInState> {
     state = GoogleSignInState.loading;
     try {
       final isNewUser = await _authenticationRepository.signInWithGoogle();
-      if (isNewUser != null && isNewUser) {}
+
+      if (isNewUser != null && isNewUser) {
+      
+      }
       state = GoogleSignInState.success;
     } on SignInWithGoogleFailure catch (_) {
       state = GoogleSignInState.error;
