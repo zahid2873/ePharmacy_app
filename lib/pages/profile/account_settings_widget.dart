@@ -1,12 +1,17 @@
+import 'package:e_pharmacy/pages/address/controller/address_controller.dart';
+import 'package:e_pharmacy/pages/login/controller/authentication_controller.dart';
 import 'package:e_pharmacy/pages/profile/icon_button_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class AccountSettingsWidget extends StatelessWidget {
+class AccountSettingsWidget extends ConsumerWidget {
   const AccountSettingsWidget({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final authController = ref.watch(authProvider).user;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -27,7 +32,12 @@ class AccountSettingsWidget extends StatelessWidget {
           ),
           title: "My Address",
           subTitle: "Set shopping delivary address",
-          onTap: () =>GoRouter.of(context).pushNamed("address"),
+          onTap: () {
+            GoRouter.of(context).pushNamed("address");
+            ref
+                .read(addressProvider.notifier)
+                .fetchAddresses(authController.id);
+          },
         ),
         IconButtonItem(
           icon: const Icon(
@@ -47,7 +57,7 @@ class AccountSettingsWidget extends StatelessWidget {
           ),
           title: "My Orders",
           subTitle: "In progress add completed orders",
-          onTap: () =>GoRouter.of(context).pushNamed("orders"),
+          onTap: () => GoRouter.of(context).pushNamed("orders"),
         ),
         IconButtonItem(
           icon: const Icon(

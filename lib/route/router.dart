@@ -77,7 +77,7 @@ final routerProvider = Provider<GoRouter>(
             name: 'addNewAddress',
             path: '/addNewAddress',
             pageBuilder: (context, state) {
-              return const MaterialPage(child: AddNewAddreesTab());
+              return  MaterialPage(child: AddNewAddreesTab());
             }),
         GoRoute(
             name: 'cart',

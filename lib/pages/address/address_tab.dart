@@ -1,13 +1,16 @@
 import 'package:e_pharmacy/common/custom_appbar.dart';
 import 'package:e_pharmacy/pages/address/address_widget.dart';
+import 'package:e_pharmacy/pages/address/controller/address_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class AddressTab extends StatelessWidget {
+class AddressTab extends ConsumerWidget {
   const AddressTab({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final addressState = ref.watch(addressProvider);
     return Scaffold(
       appBar: CustomAppBar(
         leading: IconButton(
@@ -29,22 +32,26 @@ class AddressTab extends StatelessWidget {
           color: Colors.white,
         ),
       ),
-      body: const SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
-            AddressWidget(
-              isSelected: true,
-            ),
-            AddressWidget(),
-            AddressWidget(),
-            AddressWidget(),
-            AddressWidget(),
-            AddressWidget(),
-            AddressWidget(),
-            AddressWidget(),
-            SizedBox(
-              height: 60,
+            addressState.when(
+              data: (address) {
+                return ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: address.length,
+                  itemBuilder: (context, index) {
+                    return AddressWidget(
+                      address: address[index],
+                    );
+                  },
+                );
+              },
+              loading: () => const Center(child: CircularProgressIndicator()),
+              error: (error, stack) => Center(child: Text('Error: $error')),
             ),
           ],
         ),

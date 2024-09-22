@@ -1,14 +1,27 @@
 import 'package:e_pharmacy/common/animated_button.dart';
 import 'package:e_pharmacy/common/custom_appbar.dart';
 import 'package:e_pharmacy/common/custom_textfiled.dart';
+import 'package:e_pharmacy/pages/address/controller/address_controller.dart';
+import 'package:e_pharmacy/pages/address/model/user_address.dart';
+import 'package:e_pharmacy/pages/login/controller/authentication_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class AddNewAddreesTab extends StatelessWidget {
-  const AddNewAddreesTab({super.key});
+class AddNewAddreesTab extends ConsumerWidget {
+  AddNewAddreesTab({super.key});
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController streetController = TextEditingController();
+  final TextEditingController postalController = TextEditingController();
+  final TextEditingController cityController = TextEditingController();
+  final TextEditingController stateController = TextEditingController();
+  final TextEditingController countryController = TextEditingController();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final addressController = ref.watch(addressProvider.notifier);
+    final authController = ref.watch(authProvider).user;
     return Scaffold(
       appBar: CustomAppBar(
         leading: IconButton(
@@ -27,66 +40,89 @@ class AddNewAddreesTab extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20),
           child: Column(
             children: [
-              const CustomTextField(
+              CustomTextField(
+                controller: nameController,
                 maxLine: 1,
                 hintText: "Name",
-                prefixIcon: Icon(Icons.person),
+                prefixIcon: const Icon(Icons.person),
               ),
               const SizedBox(height: 10),
-              const CustomTextField(
+              CustomTextField(
+                controller: phoneController,
                 maxLine: 1,
                 hintText: "Phone Number",
-                prefixIcon: Icon(Icons.phone),
+                prefixIcon: const Icon(Icons.phone),
               ),
               const SizedBox(height: 10),
-              const Row(
+              Row(
                 children: [
                   Expanded(
                     child: CustomTextField(
+                      controller: streetController,
                       maxLine: 1,
                       hintText: "Street",
-                      prefixIcon: Icon(Icons.location_city),
+                      prefixIcon: const Icon(Icons.location_city),
                     ),
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Expanded(
                     child: CustomTextField(
+                      controller: postalController,
                       maxLine: 1,
                       hintText: "Postal Code",
-                      prefixIcon: Icon(Icons.local_post_office),
+                      prefixIcon: const Icon(Icons.local_post_office),
                     ),
                   ),
                 ],
               ),
               const SizedBox(height: 10),
-              const Row(
+              Row(
                 children: [
                   Expanded(
                     child: CustomTextField(
+                      controller: cityController,
                       maxLine: 1,
                       hintText: "City",
-                      prefixIcon: Icon(Icons.location_city),
+                      prefixIcon: const Icon(Icons.location_city),
                     ),
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Expanded(
                     child: CustomTextField(
+                      controller: stateController,
                       maxLine: 1,
                       hintText: "State",
-                      prefixIcon: Icon(Icons.location_city),
+                      prefixIcon: const Icon(Icons.location_city),
                     ),
                   ),
                 ],
               ),
               const SizedBox(height: 10),
-              const CustomTextField(
+              CustomTextField(
+                controller: countryController,
                 maxLine: 1,
                 hintText: "Country",
-                prefixIcon: Icon(Icons.location_city_rounded),
+                prefixIcon: const Icon(Icons.location_city_rounded),
               ),
               const SizedBox(height: 20),
               AnimatedButton(
-                onTap: () {},
+                onTap: () {
+                  UserAddress address = UserAddress(
+                    uid: authController.id,
+                    name: nameController.text.trim(),
+                    phoneNumber: phoneController.text.trim(),
+                    street: streetController.text.trim(),
+                    postalCode: postalController.text.trim(),
+                    city: cityController.text.trim(),
+                    state: stateController.text.trim(),
+                    country: countryController.text.trim(),
+                    dateTime: DateTime.now(),
+                    isSelected: false,
+                  );
+                  addressController.addAddress(address);
+                  clearTextFiled();
+                  GoRouter.of(context).pop();
+                },
                 child: Container(
                   padding: const EdgeInsets.all(8),
                   width: double.infinity,
@@ -106,5 +142,15 @@ class AddNewAddreesTab extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  clearTextFiled() {
+    nameController.clear();
+    phoneController.clear();
+    stateController.clear();
+    postalController.clear();
+    streetController.clear();
+    countryController.clear();
+    cityController.clear();
   }
 }
